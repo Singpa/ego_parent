@@ -68,4 +68,24 @@ public class ItemServiceImpl implements ItemService {
         }
         return EgoResult.error("查询失败");
     }
+
+    @Override
+    public EgoResult updateItem(Item item, String desc) {
+        Date now = new Date();
+        item.setUpdated(now);
+        ItemDesc itemDesc = new ItemDesc();
+        itemDesc.setItemId(item.getId());
+        itemDesc.setItemDesc(desc);
+        itemDesc.setUpdated(now);
+
+        try {
+            int result = itemDubboService.updateItem(item, itemDesc);
+            if (result == 1) {
+                return EgoResult.ok();
+            }
+        } catch (DaoExcption excption) {
+            excption.printStackTrace();
+        }
+        return EgoResult.error("修改商品失败");
+    }
 }

@@ -26,6 +26,7 @@ public interface ItemService {
 
     /**
      * 新增item
+     *
      * @param item
      * @return
      */
@@ -33,8 +34,18 @@ public interface ItemService {
 
     /**
      * 查询商品描述信息
+     *
      * @param itemId
      * @return
      */
     EgoResult selectItemDesc(Long itemId);
+
+    /**
+     * 修改商品信息
+     *
+     * @param item
+     * @param desc
+     * @return
+     */
+    EgoResult updateItem(Item item, String desc);
 }

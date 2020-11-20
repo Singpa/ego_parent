@@ -59,5 +59,11 @@ public class ItemController {
         return itemService.selectItemDesc(itemId);
     }
 
+    @RequestMapping("/rest/item/update")
+    @ResponseBody
+    public EgoResult updateItem(Item item, String desc) {
+        return itemService.updateItem(item, desc);
+    }
+
 
 }
