@@ -6,8 +6,10 @@ import com.ego.commons.excption.DaoExcption;
 import com.ego.dubbo.service.ItemDubboService;
 import com.ego.mapper.ItemDescMapper;
 import com.ego.mapper.ItemMapper;
+import com.ego.mapper.ItemParamItemMapper;
 import com.ego.pojo.Item;
 import com.ego.pojo.ItemDesc;
+import com.ego.pojo.ItemParamItem;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,8 @@ public class ItemDubboServiceImpl implements ItemDubboService {
     private ItemMapper itemMapper;
     @Autowired
     private ItemDescMapper itemDescMapper;
+    @Autowired
+    private ItemParamItemMapper itemParamItemMapper;
 
     @Override
     public List<Item> selectItemByPage(int pageNum, int pageSize) {
@@ -54,19 +58,22 @@ public class ItemDubboServiceImpl implements ItemDubboService {
 
     @Override
     @Transactional
-    public int saveItem(Item item, ItemDesc itemDesc) throws DaoExcption {
+    public int saveItem(Item item, ItemDesc itemDesc, ItemParamItem itemParamItem) throws DaoExcption {
         int insert = itemMapper.insert(item);
         if (insert == 1) {
             int i = itemDescMapper.insert(itemDesc);
             if (i == 1) {
-                return 1;
+                i = itemParamItemMapper.insert(itemParamItem);
+                if (i == 1) {
+                    return 1;
+                }
             }
         }
         throw new DaoExcption("新增商品失败");
     }
 
     @Override
-    public ItemDesc selectItemDescByItemId(Long itemId) {
+    public ItemDesc selectItemDescByItemId(long itemId) {
 
         return itemDescMapper.selectById(itemId);
     }

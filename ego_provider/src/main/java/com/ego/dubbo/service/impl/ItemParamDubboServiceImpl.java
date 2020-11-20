@@ -46,7 +46,7 @@ public class ItemParamDubboServiceImpl implements ItemParamDubboService {
 
     @Override
     //@Transactional
-    public int deleteItemParams(long[] ids) throws DaoExcption {
+    public int deleteItemParams(Long[] ids) throws DaoExcption {
         int result = itemParamMapper.deleteBatchIds(Arrays.asList(ids));
         if (result == ids.length) {
             return 1;
@@ -55,7 +55,7 @@ public class ItemParamDubboServiceImpl implements ItemParamDubboService {
     }
 
     @Override
-    public int deleteItemParam(long itemParamId) throws DaoExcption {
+    public int deleteItemParam(Long itemParamId) {
         return itemParamMapper.deleteById(itemParamId);
     }
 

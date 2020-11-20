@@ -36,5 +36,5 @@ public interface ItemParamService {
      * @param ids
      * @return
      */
-    EgoResult deleteItemParam(long[] ids);
+    EgoResult deleteItemParam(Long[] ids);
 }

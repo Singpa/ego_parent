@@ -31,7 +31,7 @@ public class ItemParamController {
     }
 
     @RequestMapping("/item/param/delete")
-    public EgoResult deleteItemParem(long[] ids) {
+    public EgoResult deleteItemParem(Long[] ids) {
         return itemParamService.deleteItemParam(ids);
     }
 

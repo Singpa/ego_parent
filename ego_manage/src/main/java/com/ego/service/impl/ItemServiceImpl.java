@@ -7,6 +7,8 @@ import com.ego.commons.utils.IDUtils;
 import com.ego.dubbo.service.ItemDubboService;
 import com.ego.pojo.Item;
 import com.ego.pojo.ItemDesc;
+import com.ego.pojo.ItemParam;
+import com.ego.pojo.ItemParamItem;
 import com.ego.service.ItemService;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.stereotype.Service;
@@ -40,7 +42,7 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public EgoResult saveItem(Item item, String desc) {
+    public EgoResult saveItem(Item item, String desc, String itemParamas) {
         Long itemId = IDUtils.genItemId();
         Date date = new Date();
         item.setId(itemId);
@@ -51,8 +53,17 @@ public class ItemServiceImpl implements ItemService {
         itemDesc.setItemDesc(desc);
         itemDesc.setUpdated(date);
         itemDesc.setCreated(date);
+
+        ItemParamItem itemParamItem = new ItemParamItem();
+        itemParamItem.setId(IDUtils.genItemId());
+        itemParamItem.setItemId(itemId);
+        itemParamItem.setParamData(itemParamas);
+        itemParamItem.setUpdated(date);
+        itemParamItem.setCreated(date);
+
+
         try {
-            int i = itemDubboService.saveItem(item, itemDesc);
+            int i = itemDubboService.saveItem(item, itemDesc, itemParamItem);
             return EgoResult.ok();
         } catch (DaoExcption excption) {
             excption.printStackTrace();

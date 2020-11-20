@@ -3,6 +3,7 @@ package com.ego.dubbo.service;
 import com.ego.commons.excption.DaoExcption;
 import com.ego.pojo.Item;
 import com.ego.pojo.ItemDesc;
+import com.ego.pojo.ItemParamItem;
 
 import java.util.List;
 
@@ -38,15 +39,15 @@ public interface ItemDubboService {
      * @return
      * @throws DaoExcption
      */
-    int saveItem(Item item, ItemDesc itemDesc) throws DaoExcption;
+    int saveItem(Item item, ItemDesc itemDesc, ItemParamItem itemParamItem) throws DaoExcption;
 
     /**
      * 查询商品描述
      *
-     * @param ItemId
+     * @param itemId
      * @return
      */
-    ItemDesc selectItemDescByItemId(Long ItemId);
+    ItemDesc selectItemDescByItemId(long itemId);
 
     /**
      * 更新商品

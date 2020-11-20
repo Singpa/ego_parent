@@ -30,7 +30,7 @@ public interface ItemService {
      * @param item
      * @return
      */
-    EgoResult saveItem(Item item, String desc);
+    EgoResult saveItem(Item item, String desc, String itemParams);
 
     /**
      * 查询商品描述信息

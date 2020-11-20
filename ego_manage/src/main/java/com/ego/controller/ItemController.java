@@ -44,8 +44,8 @@ public class ItemController {
 
     @RequestMapping("/item/save")
     @ResponseBody
-    public EgoResult save(Item item, String desc) {
-        return itemService.saveItem(item, desc);
+    public EgoResult save(Item item, String desc, String itemParams) {
+        return itemService.saveItem(item, desc, itemParams);
     }
 
     @RequestMapping("/rest/page/item-edit")
@@ -64,6 +64,5 @@ public class ItemController {
     public EgoResult updateItem(Item item, String desc) {
         return itemService.updateItem(item, desc);
     }
-
 
 }

@@ -56,7 +56,7 @@ public class ItemParamServiceImpl implements ItemParamService {
     }
 
     @Override
-    public EgoResult deleteItemParam(long[] ids) {
+    public EgoResult deleteItemParam(Long[] ids) {
         try {
             int result = itemParamDubboService.deleteItemParams(ids);
             if (result == 1) {

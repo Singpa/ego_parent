@@ -42,7 +42,7 @@ public interface ItemParamDubboService {
      * @param ids
      * @return
      */
-    int deleteItemParams(long[] ids) throws DaoExcption;
+    int deleteItemParams(Long[] ids) throws DaoExcption;
 
     /**
      * 单独删除规格
@@ -51,5 +51,5 @@ public interface ItemParamDubboService {
      * @return
      * @throws DaoExcption
      */
-    int deleteItemParam(long itemParamId) throws DaoExcption;
+    int deleteItemParam(Long itemParamId) throws DaoExcption;
 }
