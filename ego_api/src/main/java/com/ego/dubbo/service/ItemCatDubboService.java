@@ -12,4 +12,11 @@ public interface ItemCatDubboService {
      * @return
      */
     List<ItemCat> selectItemByParentId(Long parentId);
+
+    /**
+     * 根据id查询商品类目
+     * @param id
+     * @return
+     */
+    ItemCat selectItemCatById(Long id);
 }

@@ -20,4 +20,9 @@ public class ItemCatDubboServiceImpl implements ItemCatDubboService {
         queryWrapper.eq("parent_id", parentId);
         return itemCatMapper.selectList(queryWrapper);
     }
+
+    @Override
+    public ItemCat selectItemCatById(Long id) {
+        return itemCatMapper.selectById(id);
+    }
 }

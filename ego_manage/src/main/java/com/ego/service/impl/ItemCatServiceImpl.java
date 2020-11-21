@@ -1,6 +1,8 @@
 package com.ego.service.impl;
 
 import com.ego.commons.pojo.EasyUITree;
+import com.ego.commons.pojo.EgoResult;
+import com.ego.consts.ItemConst;
 import com.ego.dubbo.service.ItemCatDubboService;
 import com.ego.pojo.ItemCat;
 import com.ego.service.ItemCatService;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+
 @Service
 public class ItemCatServiceImpl implements ItemCatService {
     @DubboReference
@@ -27,5 +30,14 @@ public class ItemCatServiceImpl implements ItemCatService {
 
         }
         return easyUITrees;
+    }
+
+    @Override
+    public EgoResult selectItemCatById(Long id) {
+        ItemCat itemCat = itemCatDubboService.selectItemCatById(id);
+        if (itemCat != null) {
+            return EgoResult.ok(itemCat);
+        }
+        return EgoResult.error(ItemConst.DELETE_ITEM_CAT_FIIL);
     }
 }
