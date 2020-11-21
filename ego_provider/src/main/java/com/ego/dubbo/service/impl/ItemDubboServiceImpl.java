@@ -80,12 +80,15 @@ public class ItemDubboServiceImpl implements ItemDubboService {
 
     @Override
     @Transactional
-    public int updateItem(Item item, ItemDesc itemDesc) throws DaoExcption {
+    public int updateItem(Item item, ItemDesc itemDesc, ItemParamItem itemParamItem) throws DaoExcption {
         int result = itemMapper.updateById(item);
         if (result == 1) {
             result = itemDescMapper.updateById(itemDesc);
             if (result == 1) {
-                return 1;
+                result = itemParamItemMapper.updateById(itemParamItem);
+                if (result == 1) {
+                    return 1;
+                }
             }
         }
         throw new DaoExcption("修改商品失败");

@@ -56,5 +56,5 @@ public interface ItemDubboService {
      * @param itemDesc
      * @return
      */
-    int updateItem(Item item, ItemDesc itemDesc) throws DaoExcption;
+    int updateItem(Item item, ItemDesc itemDesc, ItemParamItem itemParamItem) throws DaoExcption;
 }

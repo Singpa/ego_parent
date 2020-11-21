@@ -61,8 +61,8 @@ public class ItemController {
 
     @RequestMapping("/rest/item/update")
     @ResponseBody
-    public EgoResult updateItem(Item item, String desc) {
-        return itemService.updateItem(item, desc);
+    public EgoResult updateItem(Item item, String desc, String itemParams, Long itemParamId) {
+        return itemService.updateItem(item, desc, itemParams, itemParamId);
     }
 
 }

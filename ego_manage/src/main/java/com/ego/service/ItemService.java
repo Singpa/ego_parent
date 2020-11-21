@@ -47,5 +47,5 @@ public interface ItemService {
      * @param desc
      * @return
      */
-    EgoResult updateItem(Item item, String desc);
+    EgoResult updateItem(Item item, String desc, String itemParams, Long itemParamId);
 }

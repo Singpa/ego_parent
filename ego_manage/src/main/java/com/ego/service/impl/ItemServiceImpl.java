@@ -81,7 +81,7 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public EgoResult updateItem(Item item, String desc) {
+    public EgoResult updateItem(Item item, String desc, String itemParams, Long itemParamId) {
         Date now = new Date();
         item.setUpdated(now);
         ItemDesc itemDesc = new ItemDesc();
@@ -89,8 +89,15 @@ public class ItemServiceImpl implements ItemService {
         itemDesc.setItemDesc(desc);
         itemDesc.setUpdated(now);
 
+        ItemParamItem itemParamItem = new ItemParamItem();
+        itemParamItem.setUpdated(now);
+        itemParamItem.setParamData(itemParams);
+        itemParamItem.setId(itemParamId);
+        itemParamItem.setItemId(item.getId());
+
+
         try {
-            int result = itemDubboService.updateItem(item, itemDesc);
+            int result = itemDubboService.updateItem(item, itemDesc, itemParamItem);
             if (result == 1) {
                 return EgoResult.ok();
             }
