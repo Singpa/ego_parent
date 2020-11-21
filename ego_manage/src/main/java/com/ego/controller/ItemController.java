@@ -71,5 +71,4 @@ public class ItemController {
         return itemService.selectItemDesc(itemId);
     }
 
-
 }
