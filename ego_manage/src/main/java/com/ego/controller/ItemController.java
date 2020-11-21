@@ -65,10 +65,4 @@ public class ItemController {
         return itemService.updateItem(item, desc);
     }
 
-    @RequestMapping("rest/item/param/item/query/{itemId}")
-    @ResponseBody
-    public EgoResult getUpdateItemParam(@PathVariable Long itemId) {
-        return itemService.selectItemDesc(itemId);
-    }
-
 }

@@ -16,7 +16,7 @@ public class ItemParamItemController {
     private ItemParamItemService itemParamItemService;
 
     @RequestMapping("/rest/item/param/item/query/{itemId}")
-    public EgoResult selectItemParamItem(@PathVariable Long itemId) {
+    public EgoResult selectItemParamItemById(@PathVariable Long itemId) {
         return itemParamItemService.selectItemParamItemByItemId(itemId);
     }
 }

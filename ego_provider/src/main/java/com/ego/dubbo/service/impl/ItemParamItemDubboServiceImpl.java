@@ -14,7 +14,7 @@ public class ItemParamItemDubboServiceImpl implements ItemParamItemDubboService 
 
     @Override
     public ItemParamItem selectItemParamItemByItemId(Long itemId) {
-        QueryWrapper wrapper = new QueryWrapper();
+        QueryWrapper<ItemParamItem> wrapper = new QueryWrapper<>();
         wrapper.eq("item_id", itemId);
         return itemParamItemMapper.selectOne(wrapper);
     }
