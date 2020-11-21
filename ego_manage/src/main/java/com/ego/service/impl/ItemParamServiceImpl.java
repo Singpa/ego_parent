@@ -33,7 +33,7 @@ public class ItemParamServiceImpl implements ItemParamService {
     public EgoResult selectItemParamByItemCatId(Long itemCatId) {
         ItemParam itemParam = itemParamDubboService.selectItemParamByItemCatId(itemCatId);
         if (itemCatId != null) {
-            return EgoResult.ok();
+            return EgoResult.ok(itemParam);
         }
         return EgoResult.error("查询失败");
     }
