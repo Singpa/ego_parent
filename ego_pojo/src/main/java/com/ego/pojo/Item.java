@@ -37,6 +37,12 @@ public class Item extends Model<Item> {
      */
     private String title;
 
+
+
+    /**
+     * 商品标题
+     */
+    private String title3;
     /**
      * 商品卖点
      */
